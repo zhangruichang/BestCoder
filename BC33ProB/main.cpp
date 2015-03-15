@@ -14,8 +14,8 @@
 #include<fstream>
 #include<iostream>
 #include<algorithm>
-//#include <unordered_set>
-//#include <unordered_map>
+#include <unordered_set>
+#include <unordered_map>
 using namespace std;
 const int maxn = 1e6 + 10;
 typedef long long LL;
@@ -64,9 +64,9 @@ LL MultMod(LL a,LL b,LL MOD){
 LL MOD;
 LL F(LL n)
 {
-    if(!n) return 0;
-    LL sum=F(n/2);
-    if(n&1) return 2*MultMod(sum, sum, MOD);
+    if(!n) return 1LL;
+    LL sum=F(n/2LL);
+    if(n&1) return MultMod(2LL, MultMod(sum, sum, MOD), MOD);
     else return MultMod(sum, sum, MOD);
 }
 int main()
@@ -80,7 +80,8 @@ int main()
     LL n;
     while(cin>>n>>MOD)
     {
-        cout<<F(n)%MOD<<endl;
+        if(n==1) cout<<1%MOD<<endl;
+        else cout<<((F(n)-2LL)%MOD+MOD)%MOD<<endl;
     }
 	return 0;
 }

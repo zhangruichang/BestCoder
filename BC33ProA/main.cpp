@@ -55,6 +55,7 @@ int ChToDig(char c)
 }
 char str[100][201];
 int Len[100];
+/*
 void RemoveLeadZero(char*str, int &n)
 {
     int i;
@@ -69,7 +70,7 @@ void RemoveLeadZero(char*str, int &n)
     for(;i<n;i++) str[save++]=str[i];
     str[save]='\0';
     n=save;
-}
+}*/
 void RemoveBehindZero(char* str, int &n)
 {
     int i;
@@ -99,7 +100,7 @@ int main()
         for(int i=0;i<n;i++)
         {
             int len=strlen(str[i]);
-            RemoveLeadZero(str[i], len);
+            //RemoveLeadZero(str[i], len);
             reverse(str[i], str[i]+len);
             Len[i]=len;
             maxlen=max(maxlen,len);// (int)str[i].size());
